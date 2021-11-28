@@ -37,8 +37,6 @@ version: "2"
 
 services:
     db:
-        # platform: linux/x86_64
-        # image: mysql:5.7 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
         image: mariadb:latest
         container_name: db_server
         ports:
@@ -56,7 +54,7 @@ services:
     example:
         depends_on:
             - db
-        image: wordpress:latest # we're using the image with php7.1
+        image: wordpress:latest
         container_name: wp-web
         environment:
             WORDPRESS_DB_HOST: db:3306
@@ -64,6 +62,6 @@ services:
             WORDPRESS_DB_PASSWORD: password123
             WORDPRESS_DB_NAME: udb_test
         ports:
-            - "8000:80"
+            - "1234:80"
         restart: always
         volumes: ["./html:/var/www/html"]
