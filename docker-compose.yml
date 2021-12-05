@@ -39,6 +39,6 @@ services:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         restart: always
         ports:
-            - 8080:80
+            - "8080:80"
         links:
             - db
