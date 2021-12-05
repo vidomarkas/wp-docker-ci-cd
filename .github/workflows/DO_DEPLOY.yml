@@ -12,6 +12,11 @@ jobs:
       - uses: actions/checkout@main 
       - name: Create .env 
         run: echo 'PORT=${{ secrets.PORT }}' > .env
+        run: echo 'MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}' > .env
+        run: echo 'MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}' > .env
+        run: echo 'MYSQL_USER=${{ secrets.MYSQL_USER }}' > .env
+        run: echo 'MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}' > .env
+        run: echo 'WORDPRESS_DB_PASSWORD=${{ secrets.WORDPRESS_DB_PASSWORD }}' > .env
 
       - name: Run build 
         run: docker-compose up -d
