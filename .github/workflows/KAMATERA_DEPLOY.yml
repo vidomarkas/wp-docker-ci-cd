@@ -1,4 +1,4 @@
-name: KAMATERA_DEPLOY
+name: DO_DEPLOY
 
 on:
   push:
