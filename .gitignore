@@ -1,5 +1,5 @@
-database/
+/database/
 .env
-src/
-!src/wp-content/*
-html/
+/src/*
+!/src/wp-content/
+/html/
