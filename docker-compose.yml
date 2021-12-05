@@ -20,7 +20,7 @@ services:
         depends_on:
             - db
         image: wordpress:latest
-        container_name: wp-web
+        container_name: wp_vdomarkas
         environment:
             WORDPRESS_DB_HOST: db:3306
             WORDPRESS_DB_USER: ${MYSQL_USER}
