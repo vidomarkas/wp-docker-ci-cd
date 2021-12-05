@@ -1,38 +1,3 @@
-# version: "3"
-
-# services:
-#     db:
-#         platform: linux/x86_64
-#         image: mysql:5.7 # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
-#         volumes:
-#             - db_data:/var/lib/mysql
-#         restart: always
-#         environment:
-#             MYSQL_DATABASE: wp
-#             MYSQL_ROOT_PASSWORD: password
-#             MYSQL_USER: root
-#             MYSQL_PASSWORD: password
-#         networks:
-#             - wp
-
-#     wordpress:
-#         ports:
-#             - "8000:80" # change ip if required
-#         depends_on:
-#             - db
-#         volumes: ["./html:/var/www/html"]
-#         image: wordpress:latest # https://hub.docker.com/_/wordpress/
-#         environment:
-#             WORDPRESS_DB_HOST: db
-#             WORDPRESS_DB_USER: root
-#             WORDPRESS_DB_PASSWORD: password
-#         networks:
-#             - wp
-# networks:
-#     wp:
-# volumes:
-#     db_data:
-
 version: "2"
 
 services:
@@ -46,31 +11,32 @@ services:
             - ./database/initdb.d:/docker-entrypoint-initdb.d
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: password123 # any random string will do
-            MYSQL_DATABASE: udb_test # the name of your mysql database
-            MYSQL_USER: me_prname # the name of the database user
-            MYSQL_PASSWORD: password123 # the password of the mysql user
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # any random string will do
+            MYSQL_DATABASE: ${MYSQL_DATABASE} # the name of your mysql database
+            MYSQL_USER: ${MYSQL_USER} # the name of the database user
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD} # the password of the mysql user
 
-    example:
+    vdomarkascom:
         depends_on:
             - db
         image: wordpress:latest
         container_name: wp-web
         environment:
             WORDPRESS_DB_HOST: db:3306
-            WORDPRESS_DB_USER: me_prname
-            WORDPRESS_DB_PASSWORD: password123
-            WORDPRESS_DB_NAME: udb_test
+            WORDPRESS_DB_USER: ${MYSQL_USER}
+            WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+            WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
         ports:
             - "${PORT:-8000}:80"
         restart: always
         volumes: ["./html:/var/www/html"]
+
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         environment:
-            MYSQL_USERNAME: me_prname
-            MYSQL_ROOT_PASSWORD: password123
+            MYSQL_USERNAME: ${MYSQL_USER}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         restart: always
         ports:
             - 8080:80
