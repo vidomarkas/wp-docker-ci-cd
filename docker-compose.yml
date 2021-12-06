@@ -38,6 +38,7 @@ services:
             MYSQL_USERNAME: ${MYSQL_USER}
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         restart: always
+        hostname: db
         ports:
             - "8080:80"
         links:
