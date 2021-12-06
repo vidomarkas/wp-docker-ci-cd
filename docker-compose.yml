@@ -42,3 +42,5 @@ services:
             - "8080:80"
         links:
             - db
+        depends_on:
+            - db
