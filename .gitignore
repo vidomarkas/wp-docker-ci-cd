@@ -1,5 +1,7 @@
 /database/
 .env
 /vdomarkas/*
-!/vdomarkas/wp-content/
+!/vdomarkas/wp-content/themes/vdomarkas
+!/vdomarkas/wp-content/plugins/vdomarkas
+
 /html/
