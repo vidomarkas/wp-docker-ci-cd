@@ -1,7 +1,10 @@
-/database/
 .env
 /vdomarkas/*
-!/vdomarkas/wp-content/themes/vdomarkas
-!/vdomarkas/wp-content/plugins/vdomarkas
+!/vdomarkas/wp-content/
+/vdomarkas/wp-content/*
+!/vdomarkas/wp-content/themes/
+/vdomarkas/wp-content/themes/*
+!/vdomarkas/wp-content/themes/dom-theme/
+/vdomarkas/wp-content/plugins/*
+!/vdomarkas/wp-content/plugins/dom-blocks/
 
-/html/
