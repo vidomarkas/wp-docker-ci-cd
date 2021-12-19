@@ -1,5 +1,5 @@
 /database/
 .env
-/src/*
-!/src/wp-content/
+/vdomarkas/*
+!/vdomarkas/wp-content/
 /html/

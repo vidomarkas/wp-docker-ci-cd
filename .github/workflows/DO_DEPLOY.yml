@@ -17,6 +17,5 @@ jobs:
               echo 'MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}' > .env
               echo 'MYSQL_USER=${{ secrets.MYSQL_USER }}' > .env
               echo 'MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}' > .env
-              echo 'WORDPRESS_DB_PASSWORD=${{ secrets.WORDPRESS_DB_PASSWORD }}' > .env
             - name: Run build
               run: docker-compose up -d
