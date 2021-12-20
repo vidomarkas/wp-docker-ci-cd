@@ -12,7 +12,6 @@ jobs:
             - uses: actions/checkout@main
             - name: Create .env
               run: |
-              echo 'PORT=${{ secrets.PORT }}' > .env
               echo 'MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}' > .env
               echo 'MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}' > .env
               echo 'MYSQL_USER=${{ secrets.MYSQL_USER }}' > .env
