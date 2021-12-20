@@ -11,13 +11,13 @@ jobs:
         steps:
             - uses: actions/checkout@main
             - name: Create .env
-              run:
-              echo 'MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
+              run: |
+              echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
               
               MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
 
               MYSQL_USER=${{ secrets.MYSQL_USER }}
               
-              MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}' > .env
+              MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" > .env
             - name: Run build
               run: docker-compose up -d
