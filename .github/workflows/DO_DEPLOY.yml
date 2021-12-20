@@ -10,6 +10,7 @@ jobs:
 
         steps:
             # - uses: actions/checkout@main
+            - uses: actions/checkout@v2
             - name: Create .env
               run: |
                   echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
