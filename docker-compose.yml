@@ -2,7 +2,6 @@ version: "3.7"
 
 volumes:
     vdomarkas-database:
-    vdomarkas-files:
 
 networks:
     vdomarkas-network:
@@ -52,7 +51,7 @@ services:
             WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
             WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
         volumes:
-            - vdomarkas-files:/var/www/html
+            - ./vdomarkas:/var/www/html
         container_name: vdomarkas-site
         networks:
             - vdomarkas-network
